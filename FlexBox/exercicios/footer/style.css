@@ -1,0 +1,23 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    border: 1px solid red;
+    display: flex;
+    min-height: 100vh;
+    align-items: flex-end;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    height: 8rem;
+    width: 100vw;
+    background-color: gray;
+    color: white;
+}

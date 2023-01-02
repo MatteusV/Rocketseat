@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .invisible {
+        display: none;
+      }
+
+      .style {
+        text-align: center;
+        padding: 80px;
+        background-color: gray;
+        width: 500px;
+        margin-left: 33vw;
+        margin-top: 20vh;
+      }
+    </style>
+</head>
+<body>
+
+    <button id="openModal">
+        Abrir janela
+    </button>
+
+    <div id="modal">
+        <div class="style">
+            <input type="text" value="aperte ESQ para sair">
+        </div>
+    </div>
+
+    <script>
+     
+        const modal = document.getElementById("modal");
+        modal.classList.toggle("invisible")
+
+        const button = document.getElementById("openModal");
+        button.addEventListener("click", () => {
+            button.classList.toggle("invisible")
+
+            modal.classList.toggle("invisible");
+
+            if(modal.classList.contains("invisible") == false ) {
+                modal.addEventListener("keydown", function(event) {
+                    console.log(event.key)
+                    var tecla = event.key;
+
+                    if(tecla == "Escape") {
+                        modal.classList.toggle("invisible")
+                        button.classList.toggle("invisible");
+                    }
+                })
+            }
+        })
+
+
+
+
+    </script>
+</body>
+</html>

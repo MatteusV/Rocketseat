@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        .active {
+            color: white;
+        }
+        .green {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="id-title">Meu blog</h1>
+    </header>
+    <input type="text">
+</body>
+<script>
+
+    const element = document.querySelector('body')
+
+    element.classList.add('active', 'green')
+    console.log(element.classList)
+    // element.classList.toogle('green')
+    
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.primeiro, 
+.segundo {
+    background-color: red;
+    height: 100vh;
+}
+
+.primeiro {
+    width: 25%;
+    margin-right: 1rem;
+}
+
+.segundo {
+    width: 100%;
+}

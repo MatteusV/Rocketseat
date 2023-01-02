@@ -1,0 +1,23 @@
+button {
+    background-color: purple;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+}
+
+button > svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+button:hover {
+    background-color: rgb(104, 30, 104);
+    cursor: pointer;
+}
+
+button > h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}

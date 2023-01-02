@@ -1,0 +1,66 @@
+<script>
+let string = "123"
+console.log(Number(string))
+
+console.log("/////")
+
+let number = "345"
+console.log(String(number))
+
+console.log("/////")
+
+let word = "paralelepipedo"
+console.log(word.length)
+
+console.log("/////")
+
+console.log(String(number).length)
+console.log("/////")
+</script>
+
+<script>
+    let number1 = 123.512512342131
+    console.log(number1.toFixed(2).replace(".", ","))
+    console.log("/////")
+</script>
+
+<script>
+    let word1 = "Programar é muito bacana"
+    console.log(word1.toLowerCase())
+    console.log("/////")
+</script>
+
+<script>
+    let phrase = "Eu quero almoçar lá em casa"
+    let myArray = phrase.split(" ")
+    let underScore = myArray.join("_")
+    console.log(underScore.toUpperCase())
+    console.log("/////")
+</script>
+
+<script>
+    let word2 = "Manipulação"
+    console.log(Array.from(word2))
+    console.log("/////")
+</script>
+
+<script>
+    let tech = ["Html", "Css", "JavaScript"]
+// Adicionar no fim do array
+    tech.push("NodeJS")
+// Adicionar no começo
+    tech.unshift("Sql")
+// Remover do fim
+    // tech.pop()
+// Remover do começo
+    // tech.shift()
+// Pegar somente alguns elementos
+    // console.log(tech.slice(2, 5))
+    
+// Remover 1 ou mais items em qualquer posição
+    // tech.splice(1,2)    
+// Encontrar a posição do elemento
+let index = tech.indexOf('JavaScript')
+
+    console.log(index)
+</script>

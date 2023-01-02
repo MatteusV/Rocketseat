@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active { 
+            color: red;
+        }
+
+        .background {
+            background-color: blue;
+        }
+
+        .borderInput {
+            border-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 onmousemove="MouseMove" class="js" id="vermelho" onclick="print()">Eventos</h1>
+    </header>
+
+    <input id="teclado" type="text">
+
+
+    <script>
+        // eventos 
+
+        function print() {
+            const h1 = document.getElementById('vermelho');
+            h1.classList.toggle('active')
+            
+            // console.log("Print")
+        }
+
+        // eventos de teclado
+        const input = document.getElementById('teclado');
+
+        input.onkeydown = function(event) {
+            input.classList.add('borderInput')
+            input.style.borderRadius = '100px';
+
+            // argumento event
+            console.log(event)
+
+
+        }
+
+        // Adicionando eventos via JS
+
+        const h1 = document.querySelector('.js');
+
+        h1.addEventListener('click', function () {
+            console.log('printei')
+        })
+
+
+        
+
+
+    </script>
+</body>
+</html>

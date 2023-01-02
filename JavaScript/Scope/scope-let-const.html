@@ -1,0 +1,52 @@
+<script>
+    /*
+        Escopo determina a visibilidade de alguma variável no JS
+
+        #Block statement
+        
+        vamos iniciar um bloco
+
+        {
+            aqui dentro é um block e posso colocar qualquer código
+
+        } aqui fechamos o bloco
+
+        O bloco, também criará um noco escopo. Chamamos de 'block-scoped'
+
+    */
+
+    //LET E CONST
+
+    //const e let são locais e só funcionam no escopo onde foi criada
+
+    //console.log('> existe y antes do bloco?', y)  NÃO PQ SÓ EXISTE DENTRO DO BLOCO
+    {
+        let y = 0
+        console.log('>existe y dentro do bloco?', y) 
+           //sim pq está dentro do bloco
+    }
+    //console.log('>existe y depois do bloco?', y) NÃO PQ SÓ EXISTE DENTRO DO BLOCO
+
+
+
+    //mas se eu declarar o y fora do bloco é como se fosse variavéis diferentes 
+    let y = 1 
+    
+    {
+        //porém se eu atualizar o "y" aqui ele vai subindo/saindo dos blocos/escopos até achar a variavel "y"
+        y = 0
+        console.log('>existe y dentro do bloco?', y)
+    }
+    //e aqui o ""y" fica atualizado igual a do bloco
+    console.log('>existe y depois do bloco?', y)
+   
+
+   const z = 2
+
+   {
+    z = 3
+    console.log('>existe y dentro do bloco?', z)
+    //a variavel CONST não muda
+
+   }
+</script>

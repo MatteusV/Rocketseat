@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --body-background: #0e0e0e;
+    --color-logo: #ff5b50;
+    --card-color: #252525;
+    --text-color: #fff;
+    --subtitle-color: #5a5757;
+    --black-text: #000;
+    --color-input: #0D0D0D;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image:url(assets/background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+}
+
+.navigationHeader {
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+}
+
+.navigationHeader > a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navigationHeader > a:hover {
+    text-decoration: underline;
+}
+
+.logoMetamask {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px;
+    gap: 5px;
+}
+
+.logoMetamask > a {
+    color: var(--black-text);
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive; 
+}
+
+.logoMetamask > a:hover {
+    text-decoration: underline;
+}
+
+.logoMetamask:hover {
+    background-color:rgb(179, 165, 165);
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-family: 'Montserrat', sans-serif;
+    Font-Weight: 500;
+}
+
+.txt {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    
+}
+
+#textLeft {
+    color: #fff;
+    font-size: 25px;
+}
+
+#titulo,
+#nfts {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    Font-Weight: 700;
+    font-size: 50px;
+}
+
+#titulo {
+    margin-top: 50px;
+}
+
+#nfts {
+    color: var(--color-logo);
+    text-decoration: none;
+    cursor: default;
+}
+
+.artistas {
+    position: relative;
+    margin-left: 5%;
+}
+
+#artista1 {
+    position: absolute;
+    left: 0px;
+    z-index: 10;
+}
+
+#artista2 {
+    position: absolute;
+    left: 20px;
+    z-index: 9;
+}
+
+#artista3 {
+    position: absolute;
+    left: 40px;
+    z-index: 8;
+}
+
+#artista4 {
+    position: absolute;
+    left: 60px;
+    z-index: 7;
+}
+
+#txtArtista {
+    margin-left: 170px;
+    margin-top: 50px;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    width: 80%;
+    margin-left: 10%;
+    gap: 50px;
+}
+
+.fotoGaleria {
+    border: 1px solid white;
+    width: 330px;
+}
+
+.background {
+    background-color: var(--body-background);
+    color: #fff;
+    padding-left: 2%;
+}
+
+.containerPrincipal {
+    display: flex;
+    background-color: var(--body-background);
+    color: #fff;
+    padding-left: 2%;
+    height: 45%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 10%;
+    font-size: 90px;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    width: 300px;  
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+}
+
+.subtitle {
+    color: var(--subtitle-color);
+    font-size: 45px;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.containerSecundario {
+    display: flex;
+    color: white;
+    width: 75%;
+    margin-top: 10%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.textContainer {
+    font-size: 25px;
+    width: 35%;
+    height: 25%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitleContainer {
+    color: var(--color-logo);
+    text-decoration: underline;
+    cursor: default;
+}
+
+#banner {
+    margin-top: 10%;
+    width: 100%;
+    border: 1px solid gray;
+}
+
+.bloco1 {
+    margin-top: 10%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+#titleBloco1 {
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitleBloco1 {
+    color: var(--color-logo);
+    text-decoration: none;
+    cursor: default;
+}
+
+.containerBloco1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.grupo1 {
+    width: 50%;
+    border-right: 1px solid gray;
+    padding: 10px;
+}
+
+.grupo2 {
+    padding: 10px;
+    margin-right: 5%;
+}
+
+.h2ContainerBloco1 {
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#margin {
+    margin-top: 100px;
+}
+
+.txtContainerBloco1 {
+    margin-top: 30px;
+    font-size: 20px;
+    color: var(--subtitle-color);
+}
+
+.valorBloco1 {
+    color: var(--color-logo);
+}
+
+.astronautasBloco1{
+    margin-top: 30px;
+}
+
+.bloco2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.titleBloco2 {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitleBloco2 {
+    color: var(--color-logo);
+    text-decoration: none;
+    cursor: default;
+}
+
+.containerCards1,
+.containerCards2 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    background-color: var(--card-color);
+}
+
+.artistasCards {
+    width: 80px;
+}
+
+.name,
+.fotografias {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.fotografias {
+    color: var(--color-logo);
+}
+
+#todosArtistas {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15%;
+    color: white;
+    text-decoration: none
+}
+
+#todosArtistas:hover {
+    text-decoration: underline;
+}
+
+#arrowOrange {
+    margin-left: 20px;
+}
+
+.bloco3 {
+    background-color: var(--card-color);
+}
+
+.headBloco3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+    height: 200px;
+    padding: 60px;
+    border: 1px solid gray;
+}
+
+.titleBloco3,
+.subtitleBloco3 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitleBloco3 {
+    color: var(--color-logo);
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-logo);
+    width: 60px;
+    height: 60px;
+}
+
+.bodyBloco3 {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.form {
+    width: 40%;
+    height: 200px;
+    border-right: 1px solid gray;
+}
+
+.titleBody,
+.subtitleBody {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titleBody {
+    margin-top: 10%;
+}
+
+.subtitleBody {
+    color: var(--color-logo);
+}
+
+.email {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#email {
+    background-color: var(--color-input);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    border: none;
+}
+
+#submit {
+    padding: 14px;
+    background-color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#submit:hover {
+    background-color: gray;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    padding-left: 200px;
+    gap: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.txtPrincipal {
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    margin-top: 50px;  
+}
+
+.txtResto {
+    color: var(--subtitle-color);
+    margin: 10px;
+    font-size: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border: 1px solid gray;
+    width: 80%;
+    height: 150px;
+    margin-left: 10%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.titleFooter {
+    color: var(--subtitle-color);
+    font-size: 24px;
+}
+
+.redes {
+    display: flex;
+    gap: 40px;
+}
