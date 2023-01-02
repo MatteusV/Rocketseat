@@ -1,0 +1,24 @@
+para o gerenciamento podemos dividir em 3 etapas
+1°  modelar a estrutura
+2° dar vida à estrutura(instaciar essa estrutura)
+3° criar as funcionalidades dessa estrutura
+      exemplo: inserir, excluir, buscar, exibir, contar...
+
+
+STACK:
+como uma pilha de livros
+- linear(um após o outro)
+
+LIFO(Last in First out)
+- o ultimo a entrar na pilha é o primeiro a sair
+
+QUEUE(fila)
+
+FIFO(First in First out)
+- o primeiro elemento a entrar é o primeiro a sair
+
+front(frente da fila)
+back(fundo da fila)
+
+Enqueue(Entrando na fila)
+Dequeue(Saindo da fila)

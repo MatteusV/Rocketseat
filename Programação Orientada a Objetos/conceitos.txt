@@ -1,0 +1,37 @@
+Objetos:
+possui: 
+- Propiedade e funcionalidade
+- Estado e comportamentos
+- Atributos e métodos
+
+Classes:
+As classes na POO funcionam como um molde para os objetos. Os objetos são criados apartir de uma classe e muitos deles podem ser feitos da mesma classe
+
+EXEMPLO: Máquina de biscoito
+- Instâncias
+
+Clases no JavaScript:
+- Syntactal sugar
+- Prototype
+
+Encapsulamento:
+- Colocar numa cápsula
+- Agrupamento de funções e variáveis
+- Esconder detalhes de implementação
+- Camada de segurança para os atributos e métodos
+
+Herança: 
+- Pais e filhos
+- Objetos podem herdar, ou estenderm características bases
+- Uma cópia de atributos e métodos de outra classe
+- JavaScript já tem herença por padrão
+
+Polimorfismo: 
+(muitas formas) 
+Quando um objeto estende de  outro (herença) talvez haha a necessidade de reescrever uma ou mais características (atributos e métodos) neese novo objeto
+
+Abstração:
+(template ou indentidade de uma classe que será construida no futuro)
+- Atributos e métodos podem ser criados na classe de Abstração (Superclasse)
+MAS
+- A implementação dos métodos e atributos, só poderá ser feita na classe que irá herdar essa Abstração
