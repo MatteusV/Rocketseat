@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SideBar</title>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+
+        <nav class="nav">
+            <button onclick="toggleSidebar()" class="btn btnSidebar">
+                <img id="menu" src="images/menu.svg" alt="">
+            </button>
+
+            <button class="btn btnNav" id="search">
+                <img src="images/search.svg" alt="">
+            </button>
+
+            <button class="btn btnNav">
+                <img src="images/grid.svg" alt="">
+                <p class="texto"></p>
+            </button>
+
+            <button class="btn btnNav">
+                <img src="images/pet.svg" alt="">
+                <p class="texto"></p>
+            </button>
+
+            <button class="btn btnNav">
+                <img src="images/user.svg" alt="">
+                <p class="texto"></p>
+            </button>
+
+            <button class="btn btnNav">
+                <img src="images/vet.svg" alt="">
+                <p class="texto"></p>
+            </button>
+
+            <button class="btn btnNav">
+                <img src="images/settings.svg" alt="">
+                <p class="texto"></p>
+            </button>
+        </nav>
+
+        <button class="btn log-out">
+            <img src="images/log-out.svg" alt="">
+        </button>
+    </aside>
+
+    <aside class="sidebarActive" id="sidebarActive">
+
+        <nav class="navActive">
+
+            <div class="logo">
+                <img src="images/logo.svg" alt="">
+                <button onclick="closeSidebar()" class="btn btnSidebarActive">
+                    <img id="menu" src="images/menu.svg" alt="">
+                </button>
+            </div>
+
+            <div id="containerSearch">
+                <button class="btn btnActive" id="searchActive">
+                    <img src="images/search.svg" alt="">
+                    
+                    <div id="texto">
+                        <p class="text">Buscar</p>
+                    </div>
+                </button>
+            </div>
+
+            
+            <button class="btn btnActive">
+                <img src="images/grid.svg" alt="">
+                
+                <div id="texto">
+                    <p class="texto">Dashboard</p>
+                </div>
+            </button>
+
+            <button class="btn btnActive">
+                <img src="images/pet.svg" alt="">
+                
+                <div id="texto">
+                    <p class="texto">Pets</p>
+                </div>
+            </button>
+
+            <button class="btn btnActive">
+                <img src="images/user.svg" alt="">
+                
+                <div id="texto">
+                    <p class="texto">Clientes</p>
+                </div>
+            </button>
+
+            <button class="btn btnActive">
+                <img src="images/vet.svg" alt="">
+                
+                <div id="texto">
+                    <p class="texto">Vets</p>
+                </div>
+            </button>
+
+            <button class="btn btnActive">
+                <img src="images/settings.svg" alt="">
+                
+                <div id="texto">
+                    <p class="texto">Ajustes</p>
+                </div>
+            </button>
+        </nav>
+
+        <button class="btn log-outActive">
+            <img id="photo" src="images/photo.jpg" alt="">
+
+            <p id="txtPhoto">Eleanor Pena <br> Veterinária </p>
+
+            <img src="images/log-out.svg" alt="">
+        </button>
+    </aside>
+
+    <main>
+        <h1>Dashboard</h1>
+    </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>

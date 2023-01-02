@@ -1,0 +1,173 @@
+:root {
+    --text-base: #afb6c2;
+    --text-title: #d4ccb6;
+    --background: #191816;
+    --form-background: #24221f;
+    --primary-color: #ffc632;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-base);
+}
+
+.background {
+    width: 50%;
+    height: 1000px;
+    float: right;
+}
+
+.logo {
+    margin: 30px;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    background-color:var(--form-background);
+    padding: 15px;
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: var(--text-title);  
+    font-weight: 600px;
+}
+
+.subtitle {
+    font-size: 20px;
+}
+
+.formulario {
+    width: 60%;
+    height: 100%;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+
+.labelInput {
+    margin-right: 200px;
+}
+
+.inputEmail {
+    background-image: url(../images/mail.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 1.3em;
+    padding-left: 1.3em;
+    background-color: transparent;
+    border: 2px solid var(--text-base);
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    padding: 17px;
+    color: white;
+}
+
+.inputEmail:focus {
+   color: var(--primary-color);
+   background-image: url(../images/mail-focus.svg);
+   background-repeat: no-repeat;
+   background-position: left;
+   background-size: 1.3em;
+   padding-left: 1.3em;
+   border-color: var(--primary-color);
+}
+
+.inputEmail::placeholder {
+    padding: 10px;
+}
+
+.inputEmail:valid {
+    color: var(--primary-color);
+}
+
+
+.inputSenha {
+    background-image: url(../images/lock.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 1.3em;
+    padding-left: 1.3em;
+    background-color: transparent;
+    border: 2px solid var(--text-base);
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    padding: 17px;
+}
+
+.inputSenha:focus {
+    background-image: url(../images/lock-focus.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 1.3em;
+    padding-left: 1.3em;
+    color: var(--primary-color);
+}
+
+.inputSenha::placeholder {
+    padding: 10px;
+}
+
+.inputSenha:valid {
+    color: var(--primary-color);
+}
+
+.labelLembrar{
+    margin-right: 30px;
+    color: var(--text-base);
+}
+
+.link, .plink {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+
+.submit {
+    width: 80%;
+    background-color: var(--primary-color);
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1440px)  {
+    .background {
+        display: none;
+    }
+
+    .box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: transparent;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+}
