@@ -52,18 +52,21 @@
 
 .navigationHeader {
     display: flex;
-    width: 300px;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
 }
 
 .navigationHeader > a {
     color: #fff;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
 }
 
 .navigationHeader > a:hover {
     text-decoration: underline;
+    color: var(--color-logo);
 }
 
 #metamask {
@@ -74,6 +77,7 @@
     background-color: #fff;
     padding: 10px;
     gap: 5px;
+    width: 300px;
     animation-name: metamask;
     animation-duration: 2s;
     animation-delay: 0.2s;
@@ -81,10 +85,14 @@
 
 }
 
-.logoMetamask > a {
+.logoMetamask > span {
     color: var(--black-text);
     text-decoration: none;
     font-family: 'Bebas Neue', cursive; 
+}
+
+#metamask:hover {
+    background-color: var(--color-logo);
 }
 
 .logoMetamask:hover > span {
@@ -94,10 +102,15 @@
 @keyframes metamask {
     0% {
         margin-right: 1000px;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.2;
     }
 
     100% {
-
+        opacity: 1;
     }
 }
 
@@ -400,11 +413,13 @@
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 15%;
     color: white;
-    text-decoration: none
+    text-decoration: none;
+    transition: 0.5s;
 }
 
 #todosArtistas:hover {
     text-decoration: underline;
+    color: var(--color-logo);
 }
 
 #arrowOrange {
