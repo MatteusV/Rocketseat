@@ -6,8 +6,8 @@
 
 
 import http from 'node:http'
-import { json } from './middlewares/json.js';
 import { Database } from './database.js';
+import { json } from './middlewares/json.js';
 
 const database = new Database()
 
@@ -18,9 +18,9 @@ const server = http.createServer(async (req, res) => {
     await json(req, res)
 
     if(method === 'GET' && url === '/users') {
-        const users = database.select('users')
+      const users = database.select('users')
 
-       return res.end(JSON.stringify(users))
+      return res.end(JSON.stringify(users)).end()
     }
 
     if(method === 'POST' && url === '/users') {
@@ -30,15 +30,15 @@ const server = http.createServer(async (req, res) => {
         const user = {
             id: 1,
             name,
-            email
+            email,
         }
 
         database.insert('users', user)
 
-        res.writeHead(201).end()
+        return res.writeHead(201).end()
     }
 
-    return res.writeHead(404).end()
+    // res.writeHead(404).end() (ESTÁ CRASHANDO A APLICAÇÃO)
 })
 
 server.listen(3333)
