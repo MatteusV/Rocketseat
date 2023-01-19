@@ -6,39 +6,39 @@
 
 
 import http from 'node:http'
-import { Database } from './database.js';
 import { json } from './middlewares/json.js';
-
-const database = new Database()
-
-
+import { routes } from './route.js';
+import { extractQueryParams } from './utils/extract-query-params.js';
+// Query Parameters: URL STATEFUL(filtro, paginação, não obrigatórios) ex => localhost:3333/users?userId=1&name=Matteus
+// Route Parameters: IDENTIFICAÇÃO DE RECURSO GET localhost:3333/users/1 && DELETE localhost:3333/users/1  <= o 1 é um route paramenters e é o ID do usuario
+// Request Body: informações enviadas pelo formulârio
+// 
 const server = http.createServer(async (req, res) => {
-    const { method, url } = req;
+    const { method, url } = req
 
     await json(req, res)
 
-    if(method === 'GET' && url === '/users') {
-      const users = database.select('users')
+    const route = routes.find(route => {
+        return route.method === method && route.path.test(url)
+    })
 
-      return res.end(JSON.stringify(users)).end()
+
+    if(route) {
+        const routeParams = req.url.match(route.path)
+
+
+        const { query, ...params } = routeParams.groups
+
+        req.params = params
+        req.query = query ? extractQueryParams(query) : {}
+
+
+        return route.handler(req, res)
     }
 
-    if(method === 'POST' && url === '/users') {
-
-        const { name, email } = req.body
-
-        const user = {
-            id: 1,
-            name,
-            email,
-        }
-
-        database.insert('users', user)
-
-        return res.writeHead(201).end()
-    }
-
-    // res.writeHead(404).end() (ESTÁ CRASHANDO A APLICAÇÃO)
+    return res.writeHead(404).end()
 })
 
-server.listen(3333)
+server.listen(3333, () => {
+    console.log('Servidor rodando na porta 3333')
+})

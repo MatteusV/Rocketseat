@@ -1,21 +1,28 @@
-import { response, Router } from "express";
-import { CategoriesRepository } from "../repositories/CategoriesRepository";
-// o "as" serve para sobrescrever o nome da função
+import { Router } from "express";
+import multer from 'multer' 
+
+import { createCategoryController } from "../modules/cars/useCases/createCategory";
+import { importCategoryController } from "../modules/cars/useCases/importCategory";
+import { listCategoriesController } from "../modules/cars/useCases/listCategories";
 
 const categoriesRoutes = Router();
-const categoriesRepository = new CategoriesRepository()
+
+const upload = multer({
+    dest: "./tmp"
+})
 
 categoriesRoutes.post('/', (req, res) => {
-    const { name, description } = req.body;
-
-    categoriesRepository.create(name, description)
-
-    return res.status(201).send()
+    return createCategoryController.handle(req, res)
 })
-export { categoriesRoutes }
+
 
 categoriesRoutes.get('/', (req, res) => {
-   const all = categoriesRepository.list();
-
-    return response.json(all)
+    return listCategoriesController.handle(req, res);
 })
+
+categoriesRoutes.post('/import', upload.single("file"), (req, res) => {
+
+    return importCategoryController.handle(req, res);
+})
+
+export { categoriesRoutes }

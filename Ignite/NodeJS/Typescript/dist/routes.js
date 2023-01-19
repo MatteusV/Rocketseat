@@ -9,7 +9,7 @@ function createCourse(req, res) {
     CreateCourseServer_1.default.execute({
         educator: "Matteus",
         name: "NodeJS",
-        // duration: 10,
+        // duration: 10, (vai utilizar o número default que é 4 )
     });
     CreateCourseServer_1.default.execute({
         educator: "Varlesse",
