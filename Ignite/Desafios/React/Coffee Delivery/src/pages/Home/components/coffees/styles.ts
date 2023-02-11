@@ -13,6 +13,7 @@ export const ContainerCoffee = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  border-radius: 0px 25px 0px 25px;
 
   text-align: center;
 
@@ -25,11 +26,11 @@ export const ContainerCoffee = styled.div`
     p {
       color: ${(props) => props.theme['base-title']};
       font-weight: 600;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-family: 'Baloo 2', cursive;
 
       span {
-        font-size: 13px;
+        font-size: 0.8125rem;
         color: ${(props) => props.theme['base-text']};
         margin-right: 0.2rem;
       }
@@ -41,7 +42,7 @@ export const ContainerCoffee = styled.div`
       p {
         color: ${(props) => props.theme['base-text']};
         font-weight: normal;
-        font-size: 16px;
+        font-size: 1rem;
         font-family: 'Roboto', sans-serif;
       }
 
@@ -51,10 +52,7 @@ export const ContainerCoffee = styled.div`
         background: transparent;
 
         cursor: pointer;
-
-        &:active {
-          border: black;
-        }
+        margin: 0 1rem;
       }
     }
 
@@ -62,10 +60,29 @@ export const ContainerCoffee = styled.div`
       background: ${(props) => props.theme['purple-dark']};
       color: white;
       border-radius: 8px;
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
 
       cursor: pointer;
+    }
+
+    input[type='number'] {
+      background: transparent !important;
+      border: none !important;
+
+      color: ${(props) => props.theme['base-text']};
+      font-weight: normal;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+
+      width: 1rem;
+
+      -moz-appearance: textfield;
+    }
+
+    input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 `
@@ -85,10 +102,15 @@ export const Title = styled.p`
   color: ${(props) => props.theme['yellow-dark']};
 `
 
-export const Subtitle = styled.p`
-  color: ${(props) => props.theme['base-subtitle']};
+export const Name = styled.p`
+  font-family: 'Baloo 2', cursive;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  color: ${(props) => props.theme['base-title']};
 `
 
 export const Text = styled.p`
   color: ${(props) => props.theme['base-label']};
+  font-family: 'Roboto', sans-serif;
 `

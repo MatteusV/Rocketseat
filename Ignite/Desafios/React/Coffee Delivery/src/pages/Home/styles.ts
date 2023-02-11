@@ -42,3 +42,11 @@ export const Main = styled.main`
     font-weight: bold;
   }
 `
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+
+  display: grid;
+  grid-template-rows: 21.875rem;
+  grid-template-columns: 18rem 18rem 18rem 18rem;
+`

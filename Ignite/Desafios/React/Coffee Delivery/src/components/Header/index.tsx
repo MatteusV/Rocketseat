@@ -10,11 +10,11 @@ export function Header() {
       <img src={logoCoffee} />
 
       <nav>
-        <Location href="">
+        <Location href="https://open.spotify.com/playlist/3et6o1K0tToy6U4PM0Hd34">
           <img src={IconLocation} />
           <span>Porto Alegre, RS</span>
         </Location>
-        <Cart href="">
+        <Cart href="/checkout">
           <img src={IconCart} />
         </Cart>
       </nav>

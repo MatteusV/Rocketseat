@@ -9,6 +9,7 @@ import { Sidebar } from './components/Sidebar'
 //publishedAt: Date
 //content: String
 
+
 const posts = [
   {
     id: 1,

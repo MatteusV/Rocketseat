@@ -3,17 +3,15 @@ import styled from 'styled-components'
 export const HeaderStyled = styled.header`
   width: 100vw;
   padding: 2rem 10rem;
-  background: ${(props) => props.theme.white};
 
   display: flex;
   justify-content: space-between;
 
   nav {
-    width: 15%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
   }
 `
 
