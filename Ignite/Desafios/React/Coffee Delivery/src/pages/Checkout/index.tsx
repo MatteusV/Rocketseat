@@ -66,7 +66,7 @@ export function Checkout() {
         <h2>Cafés selecionados</h2>
         <Coffee>
           <ItemCoffee name="Expresso Tradicional" amount={1} price={10} />
-          <ItemCoffee name="Chocolate Quente" amount={2} price={9.9} />
+          <ItemCoffee name="Chocolate Quente" amount={1} price={9.9} />
 
           <Finished />
         </Coffee>
