@@ -2,12 +2,22 @@ import { Minus, Plus } from 'phosphor-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-// import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import shoppingSimpleCart from '../../../../assets/cartSimple.svg'
-import { ContainerCoffee, Container, Img, Name, Text, Title } from './styles'
+import {
+  ContainerCoffee,
+  Container,
+  Img,
+  Name,
+  Text,
+  Title,
+  ContainerTitles,
+  PriceText,
+} from './styles'
 
 import { CoffeeProps } from '../../../../contexts/coffeeContext'
+import { api } from '../../../../lib/axios'
 
 const addToCartFormSchema = z.object({
   amountCoffee: z.number(),
@@ -17,11 +27,16 @@ type AddToCartFormInput = z.infer<typeof addToCartFormSchema>
 
 export function Coffee(props: CoffeeProps) {
   const { register, handleSubmit } = useForm<AddToCartFormInput>({
-    // resolver: zodResolver(addToCartFormSchema)
+    resolver: zodResolver(addToCartFormSchema),
   })
 
-  function handleAddToCart(data: AddToCartFormInput) {
-    console.log(data)
+  async function handleAddToCart(data: AddToCartFormInput) {
+    await api.post('cart', {
+      name: props.name,
+      price: props.price,
+      img: props.img,
+      amount: data.amountCoffee,
+    })
   }
 
   const [amount, setAmount] = useState<number>(1)
@@ -41,14 +56,18 @@ export function Coffee(props: CoffeeProps) {
     <Container>
       <ContainerCoffee>
         <Img src={props.img} title={props.img} />
-        <Title>{props.title}</Title>
+        <ContainerTitles>
+          <Title>{props.title}</Title>
+          {props.subtitle ? <Title>{props.subtitle}</Title> : ''}
+          {props.subtitle2 ? <Title>{props.subtitle2}</Title> : ''}
+        </ContainerTitles>
         <Name>{props.name}</Name>
         <Text>{props.text}</Text>
         <div>
-          <p>
-            <span>R$</span> 
+          <PriceText>
+            <span>R$</span>
             {price}
-          </p>
+          </PriceText>
           <div>
             <button onClick={lessAmountOfCoffee}>
               <Minus size={14} />
@@ -60,14 +79,14 @@ export function Coffee(props: CoffeeProps) {
               id="AddCoffee"
             >
               <input
-                {...register('amountCoffee')}
+                {...register('amountCoffee', { valueAsNumber: true })}
                 type="number"
                 min={1}
                 value={amount}
               />
             </form>
 
-            <button  onClick={moreAmountOfCoffee} >
+            <button onClick={moreAmountOfCoffee}>
               <Plus size={14} />
             </button>
           </div>

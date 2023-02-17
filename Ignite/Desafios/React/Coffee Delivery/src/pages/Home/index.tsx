@@ -32,12 +32,13 @@ export function Home() {
         <h1>Nossos cafés</h1>
         <Container>
           {coffees.map((coffee) => {
-            console.log(coffee.price)
             return (
               <Coffee
-                key={coffee.name}
+                key={coffee.id}
                 img={coffee.img}
                 title={coffee.title}
+                subtitle={coffee.subtitle}
+                subtitle2={coffee.subtitle2}
                 name={coffee.name}
                 text={coffee.text}
                 price={coffee.price}

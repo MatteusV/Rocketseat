@@ -23,19 +23,6 @@ export const ContainerCoffee = styled.div`
     justify-content: space-around;
     align-items: center;
 
-    p {
-      color: ${(props) => props.theme['base-title']};
-      font-weight: 600;
-      font-size: 1.25rem;
-      font-family: 'Baloo 2', cursive;
-
-      span {
-        font-size: 0.8125rem;
-        color: ${(props) => props.theme['base-text']};
-        margin-right: 0.2rem;
-      }
-    }
-
     div {
       width: 40%;
 
@@ -87,15 +74,28 @@ export const ContainerCoffee = styled.div`
   }
 `
 
+export const ContainerTitles = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+`
+
 export const Img = styled.img`
   width: 7.5rem;
   margin-top: -1rem;
 `
 export const Title = styled.p`
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 130%;
 
-  padding: 0.1rem 1rem;
+  text-transform: uppercase;
+
+  padding: 0.1rem 0.8rem;
   border-radius: 100px;
 
   background-color: ${(props) => props.theme['yellow-light']};
@@ -113,4 +113,19 @@ export const Name = styled.p`
 export const Text = styled.p`
   color: ${(props) => props.theme['base-label']};
   font-family: 'Roboto', sans-serif;
+`
+
+export const PriceText = styled.p`
+  color: ${(props) => props.theme['base-title']};
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 130%;
+
+  span {
+    font-size: 0.8125rem;
+    color: ${(props) => props.theme['base-text']};
+    margin-right: 0.2rem;
+  }
 `

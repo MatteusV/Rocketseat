@@ -1,10 +1,20 @@
-import { Address, Coffee, Container, ContainerCoffee, Main } from './styles'
+import {
+  Address,
+  Coffee,
+  Container,
+  ContainerCoffee,
+  ContainerFinished,
+  Main,
+} from './styles'
 import LocationYellow from '../../assets/LocationYellow.svg'
 
 import { ItemCoffee } from './components/itemCoffee/itemCoffee'
-import { Finished } from './components/finished/finished'
+import { useContext } from 'react'
+import {  CoffeeContext } from '../../contexts/coffeeContext'
 
 export function Checkout() {
+  const { coffeesCart } = useContext(CoffeeContext)
+
   return (
     <Main>
       <Container>
@@ -65,10 +75,43 @@ export function Checkout() {
       <ContainerCoffee>
         <h2>Cafés selecionados</h2>
         <Coffee>
-          <ItemCoffee name="Expresso Tradicional" amount={1} price={10} />
-          <ItemCoffee name="Chocolate Quente" amount={1} price={9.9} />
+          {coffeesCart.map((coffee) => {
+            return (
+              <ItemCoffee
+                key={coffee.id}
+                id={coffee.id}
+                name={coffee.name}
+                amount={coffee.amount}
+                price={coffee.price}
+                img={coffee.img}
+              />
+            )
+          })}
 
-          <Finished />
+          <ContainerFinished>
+            <div>
+              <p>Total de itens</p>
+              <p>
+                R$ <span>29,70</span>
+              </p>
+            </div>
+
+            <div>
+              <p>Entrega</p>
+              <p>
+                R$ <span>3,50</span>
+              </p>
+            </div>
+
+            <div>
+              <h2>Total</h2>
+              <p>
+                R$ <span>33,20</span>
+              </p>
+            </div>
+
+            <button>CONFIRMAR PEDIDO</button>
+          </ContainerFinished>
         </Coffee>
       </ContainerCoffee>
     </Main>

@@ -7,7 +7,9 @@ import { Cart, HeaderStyled, Location } from './styles'
 export function Header() {
   return (
     <HeaderStyled>
-      <img src={logoCoffee} />
+      <a href="http://localhost:5173/">
+        <img src={logoCoffee} alt="" />
+      </a>
 
       <nav>
         <Location href="https://open.spotify.com/playlist/3et6o1K0tToy6U4PM0Hd34">
