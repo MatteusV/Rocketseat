@@ -48,4 +48,52 @@ export async function cartRoutes(app: FastifyInstance) {
 
     await knex('cart').where('coffee_id', id).del()
   })
+
+  app.post('/cart/finished', async (req, res) => {
+    const {
+      road,
+      zipCode,
+      city,
+      complement,
+      neighborhood,
+      number,
+      type,
+      uf,
+      user_id,
+    } = req.body
+
+    const verifyTable = await knex
+      .select('*')
+      .where('created_time', new Date())
+      .from('finished')
+
+    if (!verifyTable.length) {
+      await knex
+        .insert({
+          road,
+          zipCode,
+          city,
+          complement,
+          neighborhood,
+          number,
+          type,
+          uf,
+          // eslint-disable-next-line
+        user_id,
+        })
+        .into('finished')
+        .then(async (response) => {
+          if (response) {
+            await knex('cart').where('user_id', user_id).del()
+          }
+
+          res.status(201)
+        })
+        .catch((error) => {
+          res.send(error)
+        })
+    } else {
+      res.send({ message: 'Já foi efetuado essa compra' })
+    }
+  })
 }

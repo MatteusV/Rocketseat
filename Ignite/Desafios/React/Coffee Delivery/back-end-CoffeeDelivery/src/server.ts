@@ -6,6 +6,7 @@ import { fastifySession } from '@fastify/session'
 import { cartRoutes } from './routes/cart'
 import { loginRoutes } from './routes/login'
 import { coffeeRoutes } from './routes/coffee'
+import { addressRoutes } from './routes/address'
 
 const app = fastify()
 
@@ -21,6 +22,7 @@ app.register(cors, {
 app.register(coffeeRoutes)
 app.register(cartRoutes)
 app.register(loginRoutes)
+app.register(addressRoutes)
 
 app
   .listen({

@@ -25,7 +25,6 @@ export function Login() {
         if (response.status === 200) {
           localStorage.setItem('id_user', response.data[0].id)
 
-          alert('Login realizado com sucesso')
           window.location.href = 'http://localhost:5173/'
         } else {
           alert('Email ou senha erradas')

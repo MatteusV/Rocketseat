@@ -1,10 +1,13 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 
-export function CheckSessionIdExists(req: FastifyRequest, res: FastifyReply) {
-  const sessionId = req.cookies.sessionId
-
+export async function checkSessionIdExists(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  const sessionId = request.cookies.sessionId
+  console.log(sessionId)
   if (!sessionId) {
-    return res.status(401).send({
+    return reply.status(401).send({
       error: 'Unauthorized',
     })
   }

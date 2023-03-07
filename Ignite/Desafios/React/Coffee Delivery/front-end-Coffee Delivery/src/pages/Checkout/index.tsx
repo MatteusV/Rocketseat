@@ -20,8 +20,8 @@ import { api } from '../../lib/axios'
 import { Controller, useForm } from 'react-hook-form'
 
 interface SchemaInput {
-  cep: string
-  address: string
+  zipCode: string
+  road: string
   number: number
   complement: string
   neighborhood: string
@@ -35,6 +35,8 @@ export function Checkout() {
   const [sumPrice, setSumPrice] = useState<number>(0)
 
   const { register, handleSubmit, control } = useForm()
+
+  const user_id = localStorage.getItem('id_user')
 
   let frete = 3
   if (sumPrice === 0) {
@@ -56,8 +58,27 @@ export function Checkout() {
     loadSumPrice()
   }, [])
 
-  function handleSubmitForm(data: SchemaInput) {
+  async function handleSubmitForm(data: SchemaInput) {
     console.log(data)
+    const { road, zipCode, city, complement, neighborhood, number, type, uf } =
+      data
+    await api
+      .post('/cart/finished', {
+        road,
+        zipCode,
+        city,
+        complement,
+        neighborhood,
+        number,
+        type,
+        uf,
+        user_id,
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          window.location.href = 'http://localhost:5173/checkoutFilled'
+        }
+      })
   }
 
   return (
@@ -80,20 +101,20 @@ export function Checkout() {
           >
             <div>
               <input
-                {...register('cep')}
+                {...register('zipCode')}
                 type="number"
-                name="cep"
-                id="cep"
-                placeholder="CEP"
+                name="zipCode"
+                id="zipCode"
+                placeholder="cep"
               />
             </div>
 
             <div>
               <input
-                {...register('address')}
+                {...register('road')}
                 type="text"
-                name="address"
-                id="address"
+                name="road"
+                id="road"
                 placeholder="Rua"
               />
             </div>

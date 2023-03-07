@@ -24,7 +24,6 @@ export function ItemCoffee(props: CoffeeCartProps) {
     setAmount((state) => state - 1)
     setPrice((state) => state - 10)
   }
-
   return (
     <>
       <Item>
