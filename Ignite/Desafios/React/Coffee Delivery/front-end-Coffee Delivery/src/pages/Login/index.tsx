@@ -22,6 +22,7 @@ export function Login() {
         password,
       })
       .then((response) => {
+        console.log(response)
         if (response.status === 200) {
           localStorage.setItem('id_user', response.data[0].id)
 
