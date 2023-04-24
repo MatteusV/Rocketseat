@@ -35,6 +35,6 @@ export class InMemoryUserRepository implements UsersRepository {
     }
 
     this.items.push(user)
-    return user
+    return { user }
   }
 }
