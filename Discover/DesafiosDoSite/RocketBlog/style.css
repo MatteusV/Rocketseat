@@ -1,0 +1,164 @@
+:root {
+  --purple-bg: #290742;
+  --dark-bg: #170027;
+  --button-bg: #9e6dc2;
+  --white: #fff;
+  --light-purple: #fbf6ff;
+  --green: #4fff4b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+
+#Container {
+  width: 100vw;
+  background-color: var(--purple-bg);
+  color: white;
+  padding-bottom: 4rem;
+
+  border-bottom: 5px solid rgb(17, 232, 17);
+}
+
+#Header {
+  width: 80%;
+  padding-top: 2rem;
+  margin-left: 14rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+#NavHeader>a {
+  color: white;
+  text-decoration: none;
+  margin: 1rem;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
+}
+
+#NavHeader>a:hover {
+  transition: 0.3s;
+  text-decoration: underline 2px solid rgb(17, 232, 17);
+}
+
+#Search {
+  display: flex;
+}
+
+#Search>input {
+  background-color: var(--dark-bg);
+  border: none;
+  width: 15rem;
+  height: 2.75rem;
+
+  color: white;
+}
+
+#Search>input::placeholder {
+  padding: 10px;
+  color: white;
+}
+
+#Search>img {
+  background-color: var(--button-bg);
+  padding: 0.5rem;
+
+  border-radius: 0px 4px 4px 0px;
+}
+
+#Search>img:hover {
+  cursor: pointer;
+}
+
+#PainHack {
+  width: 100%;
+  display: flex;
+
+  padding-left: 10rem;
+  margin-top: 3rem;
+
+}
+
+#Left {
+  width: 50%;
+
+  padding-left: 2rem;
+}
+
+#Left>h1 {
+  color: var(--button-bg);
+
+  font-size: 3.5rem;
+  text-align: left;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+#ContainerParágrafo {
+  width: 80%;
+}
+
+#ContainerParágrafo>p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+
+#Left>button {
+  color: var(--button-bg);
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+
+  background-color: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#Left>button:hover {
+  cursor: pointer;
+
+  border-bottom: 2px solid rgb(17, 232, 17);
+}
+
+#Right {
+  padding-left: 3rem;
+}
+
+
+
+
+@media screen and (max-width: 1344px) {
+  #Header {
+    margin: 0;
+    margin-left: 10rem;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  #Header {
+    margin: 0;
+    margin-left: 0rem;
+  }
+
+}
