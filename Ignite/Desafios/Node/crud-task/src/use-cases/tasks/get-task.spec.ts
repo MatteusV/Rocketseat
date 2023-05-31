@@ -5,7 +5,7 @@ import { InMemoryTaskRepository } from '../../repositories/in-memory/in-memory-t
 let taskRespository: InMemoryTaskRepository
 let sut: GetTaskUseCase
 
-describe('Get User Profile Use Case', () => {
+describe('Get task Use Case', () => {
   beforeEach(() => {
     taskRespository = new InMemoryTaskRepository()
     sut = new GetTaskUseCase(taskRespository)
@@ -15,12 +15,10 @@ describe('Get User Profile Use Case', () => {
     const createdTask = await taskRespository.create({
       title: 'teste',
       description: 'teste',
-      userId: 'açskdjapisjd',
+      user_id: 'açskdjapisjd',
     })
 
-    const { task } = await sut.execute({
-      id: createdTask.id,
-    })
+    const { task } = await sut.execute(createdTask.id)
 
     expect(task.title).toEqual('teste')
   })

@@ -5,21 +5,21 @@ import { UpdateTaskUseCase } from './update'
 let taskRepository: InMemoryTaskRepository
 let sut: UpdateTaskUseCase
 
-describe('Complete Task Use Case', () => {
+describe('Update Task Use Case', () => {
   beforeEach(() => {
     taskRepository = new InMemoryTaskRepository()
     sut = new UpdateTaskUseCase(taskRepository)
   })
 
-  it('must be able to complete a task', async () => {
+  it('must be able to update a task', async () => {
     const createdTask = await taskRepository.create({
       title: 'teste',
       description: 'teste',
-      userId: 'matteus',
+      user_id: 'paijfopiajw',
     })
 
     const { task } = await sut.execute(createdTask.id)
 
-    expect(task.completed_at).toEqual(expect.any(Date))
+    expect(task.updated_at).toEqual(expect.any(Date))
   })
 })

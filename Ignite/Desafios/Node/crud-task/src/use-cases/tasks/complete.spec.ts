@@ -15,10 +15,12 @@ describe('Complete Task Use Case', () => {
     const createdTask = await taskRepository.create({
       title: 'teste',
       description: 'teste',
-      userId: 'matteus',
+      user_id: 'matteus',
     })
 
     const { task } = await sut.execute(createdTask.id)
+
+    console.log(task)
 
     expect(task.completed_at).toEqual(expect.any(Date))
   })

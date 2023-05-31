@@ -3,6 +3,34 @@ import { TaskRespository } from '../task-repository'
 import { prisma } from '../../lib/prisma'
 
 export class PrismaTaskRepository implements TaskRespository {
+  async fetchTaskByUserId(userId: string) {
+    const task = await prisma.task.findMany({
+      where: {
+        user_id: userId,
+      },
+    })
+
+    if (!task) {
+      return null
+    }
+
+    return task
+  }
+
+  async findByTitle(title: string) {
+    const task = await prisma.task.findFirst({
+      where: {
+        title,
+      },
+    })
+
+    if (!task) {
+      return null
+    }
+
+    return task
+  }
+
   async create(data: Prisma.TaskCreateInput) {
     const task = await prisma.task.create({
       data,
@@ -12,11 +40,15 @@ export class PrismaTaskRepository implements TaskRespository {
   }
 
   async findById(id: string) {
-    const task = await prisma.task.findUnique({
+    const task = await prisma.task.findFirst({
       where: {
         id,
       },
     })
+
+    if (!task) {
+      return null
+    }
 
     return task
   }

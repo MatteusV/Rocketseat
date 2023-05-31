@@ -5,13 +5,33 @@ import { randomUUID } from 'crypto'
 export class InMemoryTaskRepository implements TaskRespository {
   public items: Task[] = []
 
+  async fetchTaskByUserId(userId: string) {
+    const task = this.items.filter((item) => item.user_id === userId)
+
+    if (!task) {
+      return null
+    }
+
+    return task
+  }
+
+  async findByTitle(title: string) {
+    const task = this.items.find((item) => item.title === title)
+
+    if (!task) {
+      return null
+    }
+
+    return task
+  }
+
   async create(data: Prisma.TaskCreateInput) {
     const task: Task = {
       id: randomUUID(),
       title: data.title,
       description: data.description,
       created_at: new Date(),
-      user_id: data.userId,
+      user_id: data.user_id,
       completed_at: null,
       updated_at: new Date(),
     }

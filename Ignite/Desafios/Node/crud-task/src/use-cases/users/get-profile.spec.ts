@@ -19,9 +19,7 @@ describe('Get User Profile Use Case', () => {
       password: await hash('123456', 6),
     })
 
-    const { user } = await sut.execute({
-      userId: createdUser.id,
-    })
+    const { user } = await sut.execute(createdUser.id)
 
     expect(user.name).toEqual('matteus')
   })
@@ -32,10 +30,10 @@ describe('Get User Profile Use Case', () => {
       password: await hash('123456', 6),
     })
 
-    await expect(() =>
-      sut.execute({
-        userId: 'non-existing-id',
-      }),
-    ).rejects.toBeInstanceOf(ResourceNotFoundError)
+    const user_id = 'lasjfoiasj'
+
+    await expect(() => sut.execute(user_id)).rejects.toBeInstanceOf(
+      ResourceNotFoundError,
+    )
   })
 })
