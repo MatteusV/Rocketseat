@@ -14,6 +14,7 @@ import { z } from 'zod'
 import { api } from '../../../lib/axios'
 import { getWeekDays } from '../../../utils/get-week-days'
 import { Container, Header } from '../style'
+import { NextSeo } from 'next-seo'
 
 import {
   FormError,
@@ -108,6 +109,7 @@ export default function TimeIntervals() {
 
   return (
     <>
+      <NextSeo title="Selecione sua disponibilidade| Ignite Call" noindex />
       <Container>
         <Header>
           <Heading as="strong">Quase lá</Heading>
