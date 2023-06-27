@@ -26,8 +26,8 @@ export default async function handle(
     return res.status(400).json({ message: 'User does not exist.' })
   }
 
-  const refereceDate = dayjs(String(date))
-  const isPastDate = refereceDate.endOf('day').isBefore(new Date())
+  const referenceDate = dayjs(String(date))
+  const isPastDate = referenceDate.endOf('day').isBefore(new Date())
 
   if (isPastDate) {
     return res.json({ possibleTime: [], availableTimes: [] })
@@ -36,7 +36,7 @@ export default async function handle(
   const userAvailability = await prisma.userTimeInterval.findFirst({
     where: {
       user_id: user.id,
-      week_day: refereceDate.get('day'),
+      week_day: referenceDate.get('day'),
     },
   })
 
@@ -60,20 +60,20 @@ export default async function handle(
     where: {
       user_id: user.id,
       date: {
-        gte: refereceDate.set('hour', startHour).toDate(),
-        lte: refereceDate.set('hour', endHour).toDate(),
+        gte: referenceDate.set('hour', startHour).toDate(),
+        lte: referenceDate.set('hour', endHour).toDate(),
       },
     },
   })
 
   const availableTimes = possibleTime.filter((time) => {
-    const isTimeBlocked = !blockedTimes.some(
+    const isTimeBlocked = blockedTimes.some(
       (blockedTime) => blockedTime.date.getHours() === time,
     )
 
-    const isTimeInPast = refereceDate.set('hour', time).isBefore(new Date())
+    const isTimeInPast = referenceDate.set('hour', time).isBefore(new Date())
 
-    return !isTimeInPast && !isTimeBlocked
+    return !isTimeBlocked && !isTimeInPast
   })
 
   return res.json({ possibleTime, availableTimes })
