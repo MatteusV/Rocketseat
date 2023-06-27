@@ -10,7 +10,7 @@ export default async function handle(
   res: NextApiResponse,
 ) {
   if (req.method !== 'POST') {
-    return res.status(405).e nd()
+    return res.status(405).end()
   }
 
   const username = String(req.query.username)
@@ -56,7 +56,7 @@ export default async function handle(
     })
   }
 
-  await prisma.scheduling.create({
+  const scheduling = await prisma.scheduling.create({
     data: {
       name,
       email,
@@ -66,12 +66,34 @@ export default async function handle(
     },
   })
 
-
   const calendar = google.calendar({
     version: 'v3',
-    auth: await getGoogleOAuthToken(user.id)
+    auth: await getGoogleOAuthToken(user.id),
   })
 
+  await calendar.events.insert({
+    calendarId: 'primary',
+    conferenceDataVersion: 1,
+    requestBody: {
+      summary: `Ignite Call: ${name}`,
+      description: observations,
+      start: {
+        dateTime: schedulingDate.format(),
+      },
+      end: {
+        dateTime: schedulingDate.add(1, 'hour').format(),
+      },
+      attendees: [{ email, displayName: name }],
+      conferenceData: {
+        createRequest: {
+          requestId: scheduling.id,
+          conferenceSolutionKey: {
+            type: 'hangoutsMeet',
+          },
+        },
+      },
+    },
+  })
 
   return res.status(201).end()
 }
